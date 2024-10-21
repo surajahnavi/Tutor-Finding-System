@@ -1,0 +1,98 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title User Login
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+      
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      
+      form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 300px;
+      }
+      
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 16px;
+        color: #333;
+      }
+      
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+      
+      button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #5cb85c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      
+      button[type="submit"]:hover {
+        background-color: #4cae4c;
+      }
+      
+      .error-message {
+        color: red;
+        margin-bottom: 10px;
+        text-align: center;
+        display: none;
+      }
+  body
+    h1 User Login
+    form(onsubmit="handleUserLogin(event)")
+      label(for="username") Username:
+      input#username(type="text" required)
+      label(for="password") Password:
+      input#password(type="password" required)
+      button(type="submit") Login
+      p.error-message Invalid credentials, please try again.
+    script.
+      function handleUserLogin(event) {
+          event.preventDefault();
+  
+          const username = document.getElementById('username').value.trim();
+          const password = document.getElementById('password').value.trim();
+          const errorMessage = document.querySelector('.error-message');
+  
+          // Clear any previous error message
+          errorMessage.style.display = 'none';
+  
+          // Dummy validation
+          if (username === 'user' && password === 'password') {
+              window.location.href = './user-dashboard.html'; // Redirect to user dashboard
+          } else {
+              errorMessage.style.display = 'block';
+              errorMessage.textContent = 'Invalid credentials, please try again.';
+          }
+      }

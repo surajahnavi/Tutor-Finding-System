@@ -1,0 +1,332 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Eagle Mentoring - Faculty
+  style.
+    /* styles.css */
+    body {
+    margin: 0;
+    padding: 0;
+    background-color: beige;
+    font-family: calibri;
+    }
+    header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    }
+    .logo img {
+    max-height: 80px;
+    width: 120px;
+    }
+    nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    .nav-links ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    }
+    .nav-links ul li {
+    margin-right: 20px;
+    }
+    .faculty-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+    }
+    .faculty-box {
+    width: 18%; /* Adjust width to fit items in a row */
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 10px;
+    }
+    .faculty-box img {
+    max-width: 100%;
+    border-radius: 10px;
+    }
+    .faculty-details {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px; /* Adjust space between faculty boxes */
+    }
+    .faculty-details h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    }
+    .faculty-details p {
+    margin: 5px 0;
+    font-size: 16px;
+    }
+    .add-course-btn {
+    display: inline-block;
+    background-color: #333;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    }
+    .add-course-btn:hover {
+    background-color: #555;
+    }
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    }
+    .dropbtn {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    }
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    }
+    .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    }
+    .dropdown-content a:hover {
+    background-color: #ddd;
+    }
+    .show {
+    display: block;
+    }
+    footer {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    }
+    footer a {
+    color: white;
+    text-decoration: none;
+    }
+    @media print {
+    body {
+    background-color: white;
+    color: black;
+    font-size: 12px;
+    }
+    header, nav, footer, .add-course-btn {
+    display: none; /* Hide elements not necessary for print */
+    }
+    .faculty-box {
+    page-break-inside: avoid;
+    margin: 0;
+    padding: 0;
+    }
+    .faculty-details img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 0;
+    }
+    .faculty-section {
+    display: block;
+    width: 100%;
+    }
+    .faculty-box {
+    width: 100%;
+    }
+    .faculty-details {
+    background-color: transparent;
+    box-shadow: none;
+    }
+    p, h3 {
+    color: black;
+    }
+    @page {
+    margin: 10mm;
+    }
+    }
+header
+  nav
+    div(style='display:flex')
+      .logo
+        img(src='/asserts/img/4.jpeg' alt='Eagle Mentoring Logo')
+      div
+        h2(style='color: rgb(231, 214, 113);margin-left:10px') Online Tutor
+      div(style='margin-left:470px;margin-top:23px;font-size:20px')
+        a(href='/user' style='color:white;text-decoration:none') Home
+    .nav-links
+      ul
+        li
+          form(action='search.php' method='get')
+            input(type='text' placeholder='Search Course' name='course_search' style='border-radius:5px;width:150px;height:30px')
+            input(type='submit' value='Search')
+        li
+          .dropdown
+            button.dropbtn(onclick='toggleDropdown()') My Account
+            #myDropdown.dropdown-content
+              a(href='/profile') Profile
+              a(href='/mycourses') My Courses
+              a(href='/main') Main Page
+              a(href='/settings') settings
+              a(href='/login') Logout
+br
+br
+main
+  .faculty-section
+    .faculty-box
+      .faculty-details
+        img(src='./asserts/img/p1.jpeg' alt='John' style='width: 150px; height: 150px; border-radius: 50%;')
+        h3 John
+        p Data Science
+        p Msc DataScience
+        a.add-course-btn(href='course.php?course=Data%20Science') Add Course
+    .faculty-box
+      .faculty-details
+        img(src='./asserts/img/p2 (1).jpeg' alt='Charan' style='width: 150px; height: 150px; border-radius: 50%;')
+        h3 Charan
+        p Big Data
+        p M.Tech
+        a.add-course-btn(href='course.php?course=Big%20Data') Add Course
+    .faculty-box
+      .faculty-details
+        img(src='./asserts/img/p3.jpeg' alt='Alexa' style='width: 150px; height: 150px; border-radius: 50%;')
+        h3 Alexa
+        p Cyber
+        p Msc
+        a.add-course-btn(href='course.php?course=Cyber') Add Course
+    .faculty-box
+      .faculty-details
+        img(src='./asserts/img/p4.jpeg' alt='Jenny' style='width: 150px; height: 150px; border-radius: 50%;')
+        h3 Jenny
+        p Python
+        p Btech from IIT
+        a.add-course-btn(href='course.php?course=Python') Add Course
+    .faculty-box
+      .faculty-details
+        img(src='./asserts/img/p6.jpeg' alt='Elina' style='width: 150px; height: 150px; border-radius: 50%;')
+        h3 Elina
+        p UI/UX
+        p BSC Computer science
+        a.add-course-btn(href='course.php?course=UI/UX') Add Course
+    .faculty-box
+      .faculty-details
+        img(src='./asserts/img/p9.jpeg' alt='Jitesh' style='width: 150px; height: 150px; border-radius: 50%;')
+        h3 Jitesh
+        p Maths
+        p Msc Mathamatics
+        a.add-course-btn(href='course.php?course=Maths') Add Course
+    .faculty-box
+      .faculty-details
+        img(src='./asserts/img/p7.jpeg' alt='Usha' style='width: 150px; height: 150px; border-radius: 50%;')
+        h3 Usha
+        p AIML
+        p M.Tech
+        a.add-course-btn(href='course.php?course=AIML') Add Course
+    .faculty-box
+      .faculty-details
+        img(src='./asserts/img/p8.jpeg' alt='Abinash' style='width: 150px; height: 150px; border-radius: 50%;')
+        h3 Abinash
+        p VLSI
+        p M.Tech ECE
+        a.add-course-btn(href='course.php?course=VLSI') Add Course
+    // Add more faculty members here
+    .faculty-box
+      .faculty-details
+        img(src='./asserts/img/p12.jpeg' alt='Rohit' style='width: 150px; height: 150px; border-radius: 50%;')
+        h3 Rohit
+        p DAA
+        p B.Tech
+        a.add-course-btn(href='course.php?course=DAA') Add Course
+    .faculty-box
+      .faculty-details
+        img(src='./asserts/img/p10.jpeg' alt='Bhumika' style='width: 150px; height: 150px; border-radius: 50%;')
+        h3 Bhumika
+        p DBMS
+        p M.TEch
+        a.add-course-btn(href='course.php?course=DBMS') Add Course
+    .faculty-box
+      .faculty-details
+        img(src='./asserts/img/p23.jpeg' alt='Salma' style='width: 150px; height: 150px; border-radius: 50%;')
+        h3 Salma
+        p Java
+        p PHD
+        a.add-course-btn(href='course.php?course=Java') Add Course
+    .faculty-box
+      .faculty-details
+        img(src='./asserts/img/p13.jpeg' alt='Satya' style='width: 150px; height: 150px; border-radius: 50%;')
+        h3 Satya
+        p R Language
+        p B.com
+        a.add-course-btn(href='course.php?course=R%20Language') Add Course
+    .faculty-box
+      .faculty-details
+        img(src='/asserts/img/p19 (1).jpeg' alt='Karthikeyan' style='width: 150px; height: 150px; border-radius: 50%;')
+        h3 Karthikeyan
+        p IOT
+        p Msc
+        a.add-course-btn(href='course.php?course=IOT') Add Course
+    .faculty-box
+      .faculty-details
+        img(src='/asserts/img/p20.jpeg' alt='Amit' style='width: 150px; height: 150px; border-radius: 50%;')
+        h3 Amit
+        p Chemistry
+        p Msc Chemistry
+        a.add-course-btn(href='course.php?course=Chemistry') Add Course
+    .faculty-box
+      .faculty-details
+        img(src='/asserts/img/p25.jpeg' alt='Pallavi' style='width: 150px; height: 150px; border-radius: 50%;')
+        h3 Pallavi
+        p Machine Learning
+        p Msc
+        a.add-course-btn(href='course.php?course=Machine%20Learning') Add Course
+    .faculty-box
+      .faculty-details
+        img(src='/asserts/img/p26.jpeg' alt='Sumathi' style='width: 150px; height: 150px; border-radius: 50%;')
+        h3 Sumathi
+        p AI
+        p M.Tech
+        a.add-course-btn(href='course.php?course=AI') Add Course
+footer
+  p &copy; 2024 Tutor Finder. All rights reserved.
+  p
+    | Need help? 
+    a(href='mailto:support@tutorfinder.com') Contact Support
+script.
+  // Function to toggle the visibility of the dropdown menu
+  function toggleDropdown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+  }
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+  var dropdowns = document.getElementsByClassName("dropdown-content");
+  for (var i = 0; i < dropdowns.length; i++) {
+  var openDropdown = dropdowns[i];
+  if (openDropdown.classList.contains('show')) {
+  openDropdown.classList.remove('show');
+  }
+  }
+  }
+  }
+  // Add pop-up message on "Add Course" button click and change text to "Added Course"
+  document.querySelectorAll('.add-course-btn').forEach(button => {
+  button.addEventListener('click', function(event) {
+  event.preventDefault(); // Prevent the default link behavior
+  this.textContent = 'Added Course'; // Change button text
+  this.style.backgroundColor = '#555'; // Optional: Change background color
+  alert('Course has been added!'); // Alert message
+  });
+  });

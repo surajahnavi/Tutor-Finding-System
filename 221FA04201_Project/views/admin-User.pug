@@ -1,0 +1,185 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Admin - User Details
+  style.
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    }
+    .header .home-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 2px; /* Adjust this value to decrease space */
+    }
+    .container {
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    }
+    h1 {
+    text-align: center;
+    color: #4C007D;
+    margin-bottom: 30px;
+    }
+    .user-list {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+    }
+    .user-list th, .user-list td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+    }
+    .user-list th {
+    background-color: #4C007D;
+    color: white;
+    }
+    .user-list td {
+    background-color: #f9f9f9;
+    }
+    .user-list td:last-child {
+    text-align: center;
+    }
+    .view-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+    .view-btn:hover {
+    background-color: #0056b3;
+    }
+    .status-btn {
+    background-color: #28A745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+    .status-btn.inactive {
+    background-color: #FF6F61;
+    }
+    .status-btn:hover {
+    opacity: 0.9;
+    }
+    .note {
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+    }
+    /* Footer styles */
+    footer {
+    background-color: #4C007D;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+    }
+    footer p {
+    margin: 5px 0;
+    font-size: 14px;
+    }
+    footer a {
+    color: #FFAF00;
+    text-decoration: none;
+    }
+    footer a:hover {
+    text-decoration: underline;
+    }
+nav
+a(href='/Admin' style='color: rgb(15, 15, 15); text-decoration: none; margin-left: 20px;') Home
+.container
+  h1 User Details
+  table.user-list
+    thead
+      tr
+        th User Name
+        th Email
+        th Role
+        th Status
+        th Action
+    tbody
+      tr
+        td Bhumika Lavu
+        td bhumika@example.com
+        td Tutor
+        td Active
+        td
+          button.view-btn View Details
+          button.status-btn.inactive Deactivate
+      tr
+        td Jahnavi
+        td jahnavi@gmail.com
+        td Student
+        td Active
+        td
+          button.view-btn View Details
+          button.status-btn.inactive Deactivate
+      tr
+        td Anusha
+        td anusha@gmail.com
+        td Tutor
+        td Inactive
+        td
+          button.view-btn View Details
+          button.status-btn Activate
+      tr
+        td Prathyusha
+        td bt123@gmail.com
+        td Tutor
+        td Inactive
+        td
+          button.view-btn View Details
+          button.status-btn Activate
+  p.note
+    | * Admins can view more details about users and toggle their active/inactive status.
+// Footer Section
+footer
+  p &copy; 2024 Online Tutor Finder
+  p
+    | Contact us at 
+    a(href='mailto:support@onlinetutorfinder.com') support@onlinetutorfinder.com
+script.
+  // Function to handle view details action
+  document.querySelectorAll('.view-btn').forEach(button => {
+  button.addEventListener('click', function() {
+  alert('User details viewed!');
+  });
+  });
+  // Function to handle status change (activate/deactivate)
+  document.querySelectorAll('.status-btn').forEach(button => {
+  button.addEventListener('click', function() {
+  if (button.classList.contains('inactive')) {
+  button.classList.remove('inactive');
+  button.textContent = 'Activate';
+  button.previousElementSibling.previousElementSibling.textContent = 'Inactive'; // Update status in table
+  alert('User deactivated.');
+  } else {
+  button.classList.add('inactive');
+  button.textContent = 'Deactivate';
+  button.previousElementSibling.previousElementSibling.textContent = 'Active'; // Update status in table
+  alert('User activated.');
+  }
+  });
+  });

@@ -1,0 +1,125 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Tutor Finder - FAQ
+  link(rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+  style.
+    body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f7f9fc;
+    margin: 0;
+    padding: 0;
+    }
+    .w3-bar {
+    background-color: #116466;
+    }
+    .w3-bar a {
+    color: white !important;
+    }
+    .faq {
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 800px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    }
+    .faq:hover {
+    transform: scale(1.01);
+    }
+    .faq-title {
+    color: #3500D3;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    }
+    .faq p {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+    }
+    .faq p b {
+    font-size: 20px;
+    color: #116466;
+    }
+    .answer {
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #e9f7ef;
+    border: 1px solid #2ed573;
+    border-radius: 5px;
+    font-size: 16px;
+    line-height: 1.5;
+    transition: background-color 0.3s ease;
+    }
+    .answer:hover {
+    background-color: #d3f6e3;
+    }
+    @media (max-width: 600px) {
+    .faq {
+    padding: 20px;
+    }
+    .faq-title {
+    font-size: 24px;
+    }
+    .faq p {
+    font-size: 16px;
+    }
+    .answer {
+    font-size: 14px;
+    }
+    }
+// Navbar
+.w3-top
+  .w3-bar.w3-card
+    a.w3-bar-item.w3-padding-large(href='#' style='text-decoration: none;') TUTOR FINDER
+    a.w3-bar-item.w3-button.w3-padding-large(href='#') HOME
+    a.w3-bar-item.w3-button.w3-padding-large(href='#faq') STUDENT
+    a.w3-bar-item.w3-button.w3-padding-large(href='#') TUTOR
+    a.w3-bar-item.w3-button.w3-padding-large.w3-right(href='#') LOGIN
+// FAQ Section
+.faq
+  p.faq-title Help for Students
+  div
+    p
+      b 1. How do I find a tutor?
+    .answer
+      | You can find a tutor by searching through our database of available tutors. You can filter by subject, location, and availability.
+  div
+    p
+      b 2. How do I contact a tutor?
+    .answer
+      | You can contact a tutor directly through their profile page or send them a message via our platform.
+  div
+    p
+      b 3. What should I discuss in the initial email?
+    .answer
+      | In your initial email, mention your learning goals, availability, and any specific subjects or topics you need help with.
+  div
+    p
+      b 4. What if no tutors are listed for my search criteria?
+    .answer
+      | If no tutors are listed, try broadening your search criteria or consider reaching out to tutors who specialize in related subjects.
+  div
+    p
+      b 5. How many tutors should I contact?
+    .answer
+      | It&apos;s recommended to contact at least three tutors to find the best fit for your needs.
+  div
+    p
+      b 6. Tutor has not responded to my request. What should I do?
+    .answer
+      | If a tutor hasn&apos;t responded, consider following up with them or reaching out to other available tutors.
+  div
+    p
+      b 7. I need help in a subject that&rsquo;s not listed. What should I do?
+    .answer
+      | If your subject isn&apos;t listed, please contact our support team for assistance in finding a suitable tutor.

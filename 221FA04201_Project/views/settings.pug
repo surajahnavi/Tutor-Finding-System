@@ -1,0 +1,227 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Settings - Online Tutor Finder
+  style.
+    body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    }
+    .settings-container {
+    width: 70%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+    text-align: center;
+    color: #333;
+    }
+    .settings-section {
+    margin-bottom: 40px;
+    }
+    .settings-section h3 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    }
+    .settings-form {
+    display: flex;
+    flex-direction: column;
+    }
+    .settings-form label {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+    }
+    .settings-form input[type="text"],
+    .settings-form input[type="email"],
+    .settings-form input[type="password"],
+    .settings-form input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    }
+    .settings-form input[type="checkbox"] {
+    margin-right: 10px;
+    }
+    .profile-picture {
+    display: flex;
+    align-items: center;
+    }
+    .profile-picture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    }
+    .btn-submit {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    font-size: 16px;
+    }
+    .btn-submit:hover {
+    background-color: #555;
+    }
+    .message {
+    display: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #28a745;
+    text-align: center;
+    }
+    .error {
+    background-color: #dc3545;
+    }
+    footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    }
+    footer a {
+    color: #fff;
+    text-decoration: none;
+    }
+    /* Subsections for Account Settings, Notifications, Privacy, and Security */
+    .subsection {
+    margin-top: 20px;
+    }
+    .subsection label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+    }
+    .subsection .description {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+    }
+.settings-container
+  h2 Settings
+  // Account Settings
+  .settings-section
+    h3 Account Settings
+    form#account-form.settings-form
+      // Profile Information
+      .subsection
+        h4 Profile Information
+        label(for='profile-picture') Profile Picture
+        .profile-picture
+          img#profile-pic-preview(src='https://via.placeholder.com/100' alt='Profile Picture')
+          input#profile-picture(type='file' accept='image/*')
+        label(for='username') Name
+        input#username(type='text' name='username' value='Bhumika' required='')
+        label(for='email') Email
+        input#email(type='email' name='email' value='bhumika@example.com' required='')
+        label(for='phone') Phone Number
+        input#phone(type='tel' name='phone' value='123-456-7890' required='')
+        label(for='bio') Bio
+        textarea#bio(name='bio' rows='4' placeholder='Enter your bio...')
+        label(for='availability') Availability Status
+        select#availability(name='availability')
+          option(value='available') Available
+          option(value='unavailable') Unavailable
+      // Password Management
+      .subsection
+        h4 Password Management
+        label(for='password') New Password
+        input#password(type='password' name='password' placeholder='Enter new password' required='')
+        label(for='2fa')
+          input#2fa(type='checkbox' name='2fa')
+          |  Enable Two-Factor Authentication (2FA)
+  // Notification Settings
+  .settings-section
+    h3 Notification Settings
+    form#notifications-form.settings-form
+      .subsection
+        label(for='email-notifications')
+          input#email-notifications(type='checkbox' name='email-notifications')
+          |  Enable Email Notifications
+        .description Receive notifications via email for messages, bookings, and reminders.
+        label(for='sms-notifications')
+          input#sms-notifications(type='checkbox' name='sms-notifications')
+          |  Enable SMS Notifications
+        .description Receive SMS notifications for class timings, cancellations, and urgent updates.
+        label(for='push-notifications')
+          input#push-notifications(type='checkbox' name='push-notifications')
+          |  Enable Push Notifications
+        .description Receive in-app or web push notifications for all updates.
+  // Privacy and Security
+  .settings-section
+    h3 Privacy and Security
+    form#privacy-form.settings-form
+      .subsection
+        label(for='visibility')
+          | Profile Visibility
+        select#visibility(name='visibility')
+          option(value='public') Public
+          option(value='students') Students Only
+          option(value='logged-in-users') Only Logged-in Users
+        .description Control who can see your profile and personal details.
+        label(for='activity-status')
+          input#activity-status(type='checkbox' name='activity-status')
+          |  Show Activity Status
+        .description Show your online/offline status to others.
+        label(for='blocked-users') Blocked Users
+        input#blocked-users(type='text' name='blocked-users' placeholder='Manage blocked users...')
+        .description Add or remove users from your blocked list.
+  // Save Changes Button
+  button.btn-submit(type='submit') Save Changes
+  #message.message Settings saved successfully!
+footer
+  p &copy; 2024 Tutor Finder. All rights reserved.
+script.
+  document.getElementById('account-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  // Handle Account form submission
+  saveChanges();
+  });
+  document.getElementById('notifications-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  // Handle Notifications form submission
+  saveChanges();
+  });
+  document.getElementById('privacy-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  // Handle Privacy form submission
+  saveChanges();
+  });
+  function saveChanges() {
+  // Perform validation and saving logic
+  const messageBox = document.getElementById('message');
+  messageBox.style.display = 'block';
+  setTimeout(function() {
+  messageBox.style.display = 'none';
+  }, 3000);
+  }
+  // Image preview functionality for profile picture upload
+  document.getElementById('profile-picture').addEventListener('change', function(event) {
+  const file = event.target.files[0];
+  if (file) {
+  const reader = new FileReader();
+  reader.onload = function(e) {
+  document.getElementById('profile-pic-preview').src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+  }
+  });

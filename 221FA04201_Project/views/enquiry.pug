@@ -1,0 +1,126 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Online Tutor Finder - Enquiry Form
+  style.
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-image: url('/assets/img/q.png');
+    align-items: center;
+    height: 100vh;
+    }
+    .enquiry-form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    }
+    .enquiry-form h2 {
+    text-align: center;
+    color: #4C007D;
+    margin-bottom: 20px;
+    }
+    .enquiry-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    }
+    .enquiry-form input[type="text"],
+    .enquiry-form input[type="email"],
+    .enquiry-form input[type="tel"],
+    .enquiry-form select,
+    .enquiry-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    }
+    .enquiry-form textarea {
+    height: 100px;
+    resize: vertical;
+    }
+    .enquiry-form button {
+    background-color: #5A189A;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px; /* Added margin to separate from the note */
+    }
+    .enquiry-form button:hover {
+    background-color: #4C007D;
+    }
+    .enquiry-form .note {
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px; /* Add margin to give more space between the button and the note */
+    }
+    .enquiry-form .success-message {
+    color: green;
+    text-align: center;
+    display: none;
+    margin-bottom: 15px;
+    }
+    .small-button {
+    background-color: #999;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    }
+    .small-button:hover {
+    background-color: #777;
+    }
+.enquiry-form
+  h2 Tutor Enquiry Form
+  nav
+    a.main-button(href='/user') Home
+  #successMessage.success-message Your enquiry has been submitted successfully!
+  form#tutorEnquiryForm
+    label(for='name') Full Name
+    input#name(type='text' name='name' placeholder='Enter your full name' required='')
+    label(for='email') Email
+    input#email(type='email' name='email' placeholder='Enter your email' required='')
+    label(for='phone') Phone Number
+    input#phone(type='tel' name='phone' placeholder='Enter your phone number' required='')
+    label(for='subject') Subject
+    select#subject(name='subject' required='')
+      option(value='') Select subject
+      option(value='web development') Web Development
+      option(value='data science') Data Science
+      option(value='math') Math
+      option(value='physics') Physics
+      option(value='chemistry') Chemistry
+    label(for='message') Message
+    textarea#message(name='message' placeholder='Describe your requirements' required='')
+    button(type='submit') Submit Enquiry
+    p.note Note: We will contact you within 24-48 hours after receiving your enquiry.
+  // Small button to get more questions
+  a.small-button(href='/questions') Get More Questions
+script.
+  document.getElementById('tutorEnquiryForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  // Show success message (simulate form submission success)
+  document.getElementById('successMessage').style.display = 'block';
+  // Clear the form after submission
+  this.reset();
+  });

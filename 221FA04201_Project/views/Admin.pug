@@ -1,0 +1,154 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Admin Page - Tutor Finder
+  style.
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    /* background-color: #f8f8f8; */
+    background-image: url('./image.img/image.png'); /* Background image for entire webpage */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+    }
+    /* Header Styling */
+    .header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    padding: 10px; /* Reduce padding if needed */
+    /* background-color: rgba(255, 255, 255, 0.8);  */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative; /* Positioning for absolute elements */
+    z-index: 1;
+    }
+    /* Center Admin Page title */
+    .header h1 {
+    align-self: center; /* Center the title */
+    margin: 0; /* Remove margin for title */
+    font-size: 24px;
+    color: #333;
+    margin: 5px 0; /* Adjust margin above and below the title */
+    }
+    /* Home Button and Image Styling */
+    .header img {
+    width: 120px; /* Reduced image size */
+    margin-bottom: 0px; /* Reduced space between the image and Home Page button */
+    }
+    .header .home-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 2px; /* Adjust this value to decrease space */
+    }
+    /* Container and Card Styling */
+    .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+    z-index: 1; /* Ensure container is above background */
+    }
+    .card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 300px;
+    width: 100%;
+    }
+    .card img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    }
+    .card a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    }
+    /* Footer Styling */
+    footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+    width: 100%;
+    bottom: 0;
+    }
+    footer p {
+    margin: 5px 0;
+    font-size: 14px;
+    }
+    footer a {
+    color: #FFD700;
+    text-decoration: none;
+    }
+    footer a:hover {
+    text-decoration: underline;
+    }
+    /* Media query for mobile responsiveness */
+    @media (max-width: 600px) {
+    .header h1 {
+    font-size: 20px;
+    }
+    .header img {
+    width: 30px;
+    }
+    .header .home-button {
+    font-size: 14px;
+    padding: 5px 8px;
+    }
+    .card {
+    max-width: 100%;
+    }
+    .card img {
+    width: 40px;
+    height: 40px;
+    }
+    .card a {
+    font-size: 16px;
+    }
+    }
+.header
+  img(src='/asserts/img/4.jpeg' alt='Tutor Finder Logo')
+  h1 Admin Page
+  // Center-aligned Admin Page title
+  a.home-button(href='/') Home Page
+  // Home page button below the image
+.container
+  .card
+    img(src='/asserts/img/2.jpeg' alt='Approve Tutor')
+    a.approvetutor-button(href='/approvetutor') Approve Tutor
+  .card
+    img(src='/asserts/img/3.jpeg' alt='User Details')
+    a.userdetails-button(href='/admin-User') User Details
+// Footer Section
+footer
+  p &copy; 2024 Tutor Finder. All rights reserved.
+  p
+    | Need help? 
+    a(href='mailto:support@tutorfinder.com') Contact Support
+// JavaScript to print the page
+script.
+  function printPage() {
+  window.print();
+  }

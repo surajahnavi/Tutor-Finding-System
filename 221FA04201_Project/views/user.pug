@@ -1,0 +1,119 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Tutor Finder
+  style.
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0f7fa;
+    background-image: url('./image.img/u.jpg');
+    }
+    header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    }
+    .container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    }
+    h1{
+    text-align: left;
+    }
+    .card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 100px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    margin: 10px;
+    }
+    .card img {
+    max-width: 100%;
+    border-radius: 8px;
+    }
+    .main-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #4acc4c; /* Same as footer */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    }
+    .home-button:hover {
+    background-color: #45a049; /* Darker shade on hover */
+    }
+    .footer {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    }
+    .footer a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    }
+    .footer a:hover {
+    text-decoration: underline;
+    }
+    .footer p {
+    margin: 0;
+    font-size: 14px;
+    }
+    @media (max-width: 600px) {
+    .container {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center;
+    }
+    .card {
+    width: 90%; /* Full width on small screens */
+    }
+    header {
+    font-size: 18px; /* Smaller header font */
+    }
+    }
+header
+  h1 Tutor Finder
+  nav
+    a.main-button(href='/') Home
+.container
+  .card
+    img(src='./asserts/img/1.jpeg' alt='Search Tutor')
+    a.home-button(href='/home') Search Tutor
+  .card
+    img(src='./asserts/img/p.jpeg' alt='My Enquiry')
+    a.enquiry-button(href='/enquiry') Enquiry
+  .card
+    img(src='./asserts/img/3.jpeg' alt='My Profile')
+    a.profile-button(href='/profile')
+      p My Profile
+// Updated Footer
+footer.footer
+  p &copy; 2024 Tutor Finder. All rights reserved.
+  p
+    | Need help? 
+    a(href='mailto:support@tutorfinder.com') Contact Support
+script.
+  function printPage() {
+  window.print();
+  }

@@ -1,0 +1,132 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title MyCourses Tutor Finder
+    style.
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f4f4f4;
+      }
+
+      header {
+          background-color: #007bff;
+          color: white;
+          padding: 10px 0;
+          text-align: center;
+      }
+
+      h1 {
+          margin: 0;
+      }
+
+      .container {
+          max-width: 800px;
+          margin: 20px auto;
+          background-color: white;
+          padding: 20px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+          margin-bottom: 15px;
+      }
+
+      label {
+          display: block;
+          font-weight: bold;
+      }
+
+      input, textarea {
+          width: 100%;
+          padding: 10px;
+          margin-top: 5px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+      }
+
+      button {
+          background-color: #28a745;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+
+      button:hover {
+          background-color: #218838;
+      }
+
+      .course-list {
+          margin-top: 20px;
+      }
+
+      .course-item {
+          background-color: #f8f9fa;
+          padding: 10px;
+          border: 1px solid #ddd;
+          margin-bottom: 10px;
+          border-radius: 5px;
+      }
+
+      .course-item h3 {
+          margin: 0 0 10px;
+      }
+
+  body
+    header
+      h1 MyCourses - Tutor Finder System
+    
+    .container
+      h2 Add a New Course
+      form#courseForm
+        .form-group
+          label(for="courseName") Course Name:
+          input#courseName(type="text" placeholder="Enter course name" required)
+        .form-group
+          label(for="tutorName") Tutor Name:
+          input#tutorName(type="text" placeholder="Enter tutor name" required)
+        .form-group
+          label(for="description") Course Description:
+          textarea#description(rows="4" placeholder="Enter course description" required)
+        button(type="submit") Add Course
+
+      .course-list#courseList
+        h2 Available Courses
+        // Courses will be dynamically added here
+
+    script.
+      // Get form elements
+      const courseForm = document.getElementById('courseForm');
+      const courseList = document.getElementById('courseList');
+
+      // Event listener for form submission
+      courseForm.addEventListener('submit', function(e) {
+          e.preventDefault();  // Prevent the form from refreshing the page
+
+          // Get form values
+          const courseName = document.getElementById('courseName').value;
+          const tutorName = document.getElementById('tutorName').value;
+          const description = document.getElementById('description').value;
+
+          // Create new course element
+          const courseItem = document.createElement('div');
+          courseItem.classList.add('course-item');
+
+          courseItem.innerHTML = `
+              <h3>${courseName} <small>by ${tutorName}</small></h3>
+              <p>${description}</p>
+          `;
+
+          // Add course item to the course list
+          courseList.appendChild(courseItem);
+
+          // Clear form fields after submission
+          document.getElementById('courseName').value = '';
+          document.getElementById('tutorName').value = '';
+          document.getElementById('description').value = '';
+      });

@@ -1,0 +1,195 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Registration Form
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+      }
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        background-color: #333;
+        margin: 0;
+        overflow: hidden;
+      }
+      nav ul li {
+        display: inline-block;
+        margin-right: 10px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+        padding: 14px 20px;
+        display: inline-block;
+      }
+      nav ul li a:hover {
+        background-color: #111;
+      }
+      header {
+        background-color: #f4f4f4;
+        padding: 20px;
+        text-align: center;
+      }
+      main {
+        padding: 20px;
+      }
+      form {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      }
+      form fieldset {
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      form legend {
+        padding: 0 10px;
+        font-weight: bold;
+        font-size: 18px;
+        color: #333;
+      }
+      form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+      }
+      form label.inline {
+        display: inline-block;
+        margin-right: 10px;
+        font-weight: normal;
+      }
+      form input,
+      form select {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease-in-out;
+        font-size: 16px;
+      }
+      form input[type="radio"],
+      form input[type="checkbox"] {
+        width: auto;
+        margin-right: 5px;
+      }
+      form input:focus,
+      form select:focus {
+        border-color: #66afe9;
+        outline: none;
+        box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+      }
+      button {
+        width: 100%;
+        padding: 14px 20px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease-in-out;
+        justify-content: left;
+      }
+      button:hover {
+        background-color: #555;
+      }
+      .container {
+        display: flex;
+        justify-content: space-between;
+      }
+      footer {
+        background-color: #f4f4f4;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }
+      h1 {
+        text-align: center;
+        background-color: rgb(204, 239, 64);
+      }
+  body
+    header
+      h1 Registration Form
+    main
+      form#registrationForm(action='/submit_registration' method='post')
+        fieldset
+
+          legend Personal Details
+          fieldset
+          legend Role Selection
+          label Select Role:
+          label.inline(for='studentRadio')
+            input#studentRadio(type='radio' name='role' value='student' required)
+            |  Student
+          label.inline(for='tutorRadio')
+            input#tutorRadio(type='radio' name='role' value='tutor' required)
+            |  tutor
+          label(for='firstName') First Name:
+          input#firstName(type='text' name='firstName' required)
+          label(for='lastName') Last Name:
+          input#lastName(type='text' name='lastName' required)
+          label(for='dob') Date of Birth:
+          input#dob(type='date' name='dob' required)
+          label Gender:
+          label.inline(for='male')
+            input#male(type='radio' name='gender' value='male')
+            |  Male
+          label.inline(for='female')
+            input#female(type='radio' name='gender' value='female')
+            |  Female
+          label.inline(for='other')
+            input#other(type='radio' name='gender' value='other')
+            |  Other
+        fieldset
+          legend Contact Details
+          label(for='email') Email:
+          input#email(type='email' name='email' required)
+          label(for='phone') Phone:
+          input#phone(type='tel' name='phone' required)
+          label(for='city') City:
+          input#city(type='text' name='city' required)
+          label(for='state') State:
+          select#state(name='state' required)
+            option(value='California') California
+            option(value='Texas') Texas
+            option(value='New York') New York
+            option(value='Florida') Florida
+            option(value='Illinois') Illinois
+        .container
+          button(type='submit') Register
+          button(type='reset') Reset
+
+    footer
+      p Footer content goes here
+    script.
+      const studentRadio = document.getElementById('studentRadio');
+      const adminRadio = document.getElementById('adminRadio');
+      const registrationForm = document.getElementById('registrationForm');
+
+      // Handle form submission based on selected role
+      registrationForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Redirect based on the selected role
+        if (studentRadio.checked) {
+          window.location.href = '/home'; // Redirect to student dashboard
+        } else if (adminRadio.checked) {
+          window.location.href = '/admin'; // Redirect to admin dashboard
+        }
+      });

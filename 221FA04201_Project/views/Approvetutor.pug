@@ -1,0 +1,196 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Admin - Approve Tutors
+  style.
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-image: url('/asserts/img/r.png');
+    min-height: 100vh;
+    }
+    header {
+    background-color: #4C007D;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    header .logo {
+    display: flex;
+    align-items: center;
+    }
+    header .logo img {
+    height: 40px;
+    margin-right: 10px;
+    }
+    .container {
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    }
+    h1 {
+    text-align: center;
+    color: #4C007D;
+    margin-bottom: 30px;
+    }
+    .tutor-list {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+    }
+    .tutor-list th, .tutor-list td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+    }
+    .tutor-list th {
+    background-color: #4C007D;
+    color: white;
+    }
+    .tutor-list td {
+    background-color: #f9f9f9;
+    }
+    .tutor-list td:last-child {
+    text-align: center;
+    }
+    .approve-btn {
+    background-color: #28A745;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+    }
+    .approve-btn:hover {
+    background-color: #218838;
+    }
+    .reject-btn {
+    background-color: #FF6F61;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+    .reject-btn:hover {
+    background-color: #d9534f;
+    }
+    .approved {
+    background-color: #218838 !important; /* Dark green for approved */
+    }
+    .rejected {
+    background-color: #d9534f !important; /* Dark red for rejected */
+    }
+    .note {
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+    }
+    /* Footer styles */
+    footer {
+    background-color: #4C007D;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+    }
+    footer p {
+    margin: 5px 0;
+    font-size: 14px;
+    }
+    footer a {
+    color: #FFAF00;
+    text-decoration: none;
+    }
+    footer a:hover {
+    text-decoration: underline;
+    }
+header
+  .logo
+    img(src='/asserts/img/logos.png' alt='Logo')
+    // Replace with your logo image URL
+    span Tutor Finder
+  nav
+    a(href='/Admin' style='color: white; text-decoration: none; margin-left: 20px;') Home
+.container
+  h1 Approve Tutor Requests
+  table.tutor-list
+    thead
+      tr
+        th Tutor Name
+        th Email
+        th Subject Expertise
+        th Experience (Years)
+        th Action
+    tbody
+      tr
+        td Bhumika Lavu
+        td bhumika@example.com
+        td Web Development
+        td 5
+        td
+          button.approve-btn Approve
+          button.reject-btn Reject
+      tr
+        td David Sabbath
+        td david.s@example.com
+        td Data Science
+        td 3
+        td
+          button.approve-btn Approve
+          button.reject-btn Reject
+      tr
+        td Mary Johnson
+        td mary.j@example.com
+        td Mathematics
+        td 7
+        td
+          button.approve-btn Approve
+          button.reject-btn Reject
+  p.note
+    | * Once a tutor is approved, they will be listed on the platform and students can contact them.
+// Footer Section
+footer
+  p &copy; 2024 Online Tutor Finder
+  p
+    | Contact us at 
+    a(href='mailto:support@onlinetutorfinder.com') support@onlinetutorfinder.com
+script.
+  // Approve and Reject button functionality
+  document.querySelectorAll('.approve-btn').forEach(button => {
+  button.addEventListener('click', function() {
+  // Change to approved style
+  this.textContent = 'Approved';
+  this.classList.add('approved');
+  this.setAttribute('disabled', true); // Disable the approve button
+  this.nextElementSibling.classList.remove('reject-btn'); // Change the reject button style
+  this.nextElementSibling.classList.add('rejected');
+  this.nextElementSibling.textContent = 'Reject'; // Keep reject button active
+  });
+  });
+  document.querySelectorAll('.reject-btn').forEach(button => {
+  button.addEventListener('click', function() {
+  // Change to rejected style
+  this.textContent = 'Rejected';
+  this.classList.add('rejected');
+  this.setAttribute('disabled', true); // Disable the reject button
+  this.previousElementSibling.classList.remove('approve-btn'); // Change the approve button style
+  this.previousElementSibling.classList.add('approved');
+  this.previousElementSibling.textContent = 'Approve'; // Keep approve button active
+  // Change the approve button style to a lighter shade
+  this.previousElementSibling.style.backgroundColor = '#A0D3A0'; // Lighter green
+  this.previousElementSibling.style.color = '#fff'; // Keep text white
+  });
+  });

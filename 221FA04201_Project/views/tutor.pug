@@ -1,0 +1,187 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Tutor Profile
+  style.
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    }
+    header {
+    background-color: #4CAF50;
+    padding: 10px 0;
+    text-align: center;
+    }
+    header nav ul {
+    list-style: none;
+    padding: 10px 0;
+    }
+    header nav ul li {
+    display: inline;
+    margin: 0 15px;
+    }
+    header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    }
+    .profile-section {
+    padding: 50px 20px;
+    }
+    .profile-container {
+    background-color: white;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    .profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+    }
+    .profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid #4CAF50;
+    }
+    .tutor-name {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    }
+    .tutor-subjects {
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 15px;
+    }
+    .profile-details {
+    width: 100%;
+    }
+    .profile-details h2 {
+    font-size: 20px;
+    margin-top: 20px;
+    color: #4CAF50;
+    text-align: left;
+    }
+    .profile-details p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: left;
+    }
+    .review-section {
+    background-color: #e9ffe9;
+    border-left: 4px solid #4CAF50;
+    padding: 10px;
+    margin: 10px 0;
+    display: none; /* Hide initially */
+    }
+    .review {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    }
+    .review:last-child {
+    border-bottom: none;
+    }
+    .review-rating {
+    font-weight: bold;
+    color: #4CAF50;
+    }
+    .average-rating {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #4CAF50;
+    text-align: left;
+    }
+    .button-table {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+    }
+    footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    }
+    /* Additional styles for toggle button */
+    .toggle-reviews {
+    cursor: pointer;
+    color: #4CAF50;
+    margin: 20px 0;
+    font-weight: bold;
+    text-align: left;
+    width: 100%;
+    }
+header
+  nav
+    ul
+      li
+        a(href='/login') Home
+      li
+        a(href='/home') Tutors
+      li
+        a(href='/Approvetutor') Requests
+      li
+        a(href='#') Contact
+section.profile-section
+  .profile-container
+    .profile-header
+      img.profile-pic(src='./asserts/img/p1.jpeg' alt='Tutor Image')
+      h1.tutor-name John Doe
+      p.tutor-subjects Subjects: Math, Physics, Chemistry
+    .profile-details
+      h2 About Me
+      p
+        | I have over 5 years of experience teaching high school and college students. I specialize in simplifying complex topics and making learning engaging.
+      h2 Experience
+      p 5+ Years of Teaching Experience
+      h2 Qualifications
+      p M.Sc. in Physics
+      h2 Availability
+      p Weekdays: 10:00 AM - 5:00 PM
+      h2 Contact Information
+      p Email: johndoe@gmail.com
+      p Phone: +123 456 7890
+      h2.toggle-reviews(onclick='toggleReviews()') Reviews
+      #reviews.review-section
+        #averageRating.average-rating
+          | Average Rating: 
+          span.review-rating &#x2B50;&#xFE0F;&#x2B50;&#xFE0F;&#x2B50;&#xFE0F;&#x2B50;&#xFE0F;&#x2B50;&#xFE0F;
+        .review
+          span.review-rating &#x2B50;&#xFE0F;&#x2B50;&#xFE0F;&#x2B50;&#xFE0F;&#x2B50;&#xFE0F;&#x2B50;&#xFE0F;
+          p &quot;John is an amazing tutor! Helped me understand Physics easily.&quot; - Student A
+        .review
+          span.review-rating &#x2B50;&#xFE0F;&#x2B50;&#xFE0F;&#x2B50;&#xFE0F;&#x2B50;&#xFE0F;
+          p &quot;Very knowledgeable and patient.&quot; - Student B
+        .review
+          span.review-rating &#x2B50;&#xFE0F;&#x2B50;&#xFE0F;&#x2B50;&#xFE0F;&#x2B50;&#xFE0F;&#x2B50;&#xFE0F;
+          p &quot;Made complex topics simple!&quot; - Student C
+footer
+  p &copy; 2024 Tutor Finder
+script.
+  // Function to toggle the visibility of the reviews section
+  function toggleReviews() {
+  const reviewsSection = document.getElementById('reviews');
+  if (reviewsSection.style.display === 'none' || reviewsSection.style.display === '') {
+  reviewsSection.style.display = 'block';
+  } else {
+  reviewsSection.style.display = 'none';
+  }
+  }
+  // Initially hide the reviews section
+  document.getElementById('reviews').style.display = 'none';

@@ -1,0 +1,123 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Login
+  link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap' rel='stylesheet')
+  // Google Font
+  style.
+    body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #6c757d, #f0f4f8); /* Gradient background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    }
+    .login-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    transition: transform 0.3s;
+    }
+    .login-container:hover {
+    transform: translateY(-3px);
+    }
+    h2 {
+    text-align: center;
+    color: #34495e;
+    margin-bottom: 20px;
+    font-size: 28px;
+    }
+    .form-group {
+    margin-bottom: 20px;
+    }
+    .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+    }
+    .form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #b0c4de;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    }
+    .form-group input:focus {
+    border-color: #6c757d;
+    outline: none;
+    }
+    .login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.3s;
+    }
+    .login-button:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+    }
+    .forgot-password {
+    text-align: center;
+    margin-top: 10px;
+    }
+    .forgot-password a {
+    color: #6c757d;
+    text-decoration: none;
+    font-weight: bold;
+    }
+    .forgot-password a:hover {
+    text-decoration: underline;
+    }
+    .checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    }
+    .checkbox-group input {
+    margin-right: 10px;
+    }
+.login-container
+  h2 Login
+  form#login-form
+    .form-group
+      label(for='username') Username:
+      input#username(type='text' name='username' placeholder='Enter your username' required='' aria-label='Username')
+    .form-group
+      label(for='password') Password:
+      input#password(type='password' name='password' placeholder='Enter your password' required='' aria-label='Password')
+    .checkbox-group
+      input#show-password(type='checkbox' aria-label='Show password')
+      label(for='show-password') Show Password
+    button.login-button(type='submit') Login
+  .forgot-password
+    p
+      a(href='#') Forgot Password?
+script.
+  // Handle form submission
+  document.getElementById('login-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent form from submitting
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+  // Add your authentication logic here (e.g., send to server)
+  // For demonstration, we will just redirect
+  window.location.href = '/Admin'; // Replace with the target URL
+  });
+  // Show or hide password
+  document.getElementById('show-password').addEventListener('change', function() {
+  const passwordInput = document.getElementById('password');
+  passwordInput.type = this.checked ? 'text' : 'password'; // Toggle password visibility
+  });
